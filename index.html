@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="UrbanVLA: A Vision-Language-Action Model for Urban Micromobility ">
+    <!-- <meta name="keywords" content="VLN, VLA model, Foundation Model"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UrbanVLA: A Vision-Language-Action Model for Urban Micromobility </title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYH3N96LN5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZYH3N96LN5');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/slick.css">
+    <link rel="stylesheet" href="./static/css/slick-theme.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/favicon.svg">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/slick.min.js"></script>
+    <script src="./static/js/index.js"></script>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+</head>
+
+<body>
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-2 publication-title">
+                            UrbanVLA: A Vision-Language-Action Model<br>for Urban Micromobility 
+                        </h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://andyhandsom6.github.io/">Anqi Li</a><sup>1,2,</sup>*,</span> &nbsp;
+                            <span class="author-block">
+                                <a href="https://github.com/Yeah2333/">Zhiyong Wang</a><sup>2,</sup>*,</span> &nbsp;
+                            <span class="author-block">
+                                <a href="https://jzhzhang.github.io/">Jiazhao Zhang</a><sup>1,2,</sup>*,</span> &nbsp;
+                            <span class="author-block">
+                                <a href="https://github.com/lpercc">Minghan Li</a><sup>2</sup></span>, &nbsp;
+                            <br>
+                            <span class="author-block">
+                                <a href="https://github.com/moonsbird29/">Yunpeng Qi</a><sup>3,4</sup></span>, &nbsp;
+                            <span class="author-block">
+                                <a href="https://scholar.google.com/citations?user=1ayDJfsAAAAJ&hl=en">Zhibo Chen</a><sup>3</sup></span>, &nbsp;
+                            <span class="author-block">
+                                <a href="https://scholar.google.com/citations?user=X7M0I8kAAAAJ&hl=en">Zhizheng Zhang</a><sup>2,4,†</sup></span>, &nbsp;
+                            <span class="author-block">
+                                <a href="https://hughw19.github.io/">He Wang</a><sup>1,2,4,†</sup></span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <!-- <span class="author-block">Institution Name<br>Conference name and year</span> -->
+                            <span class="author-block">
+                              <sup>1</sup>Peking University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <sup>2</sup>GalBot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <sup>3</sup>USTC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <sup>4</sup>BAAI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                            </span>
+                          </div>
+              
+                          <div class="is-size-5 publication-authors">
+                            *Joint First Author&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;†Equal Advising
+                          </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <span class="link-block">
+                                    <a  target="_blank" class="external-link button is-normal is-rounded is-light">
+                                    <!-- <a href="https://arxiv.org/abs/xxxx"
+                                        class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer"> -->
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a  target="_blank" class="external-link button is-normal is-rounded is-light">
+                                      <span class="icon">
+                                        <i class="fab fa-github"></i>
+                                      </span>
+                                      <span>VLA Model</span>
+                                    </a>
+                                </span>
+                                <!-- <span class="link-block">
+                                    <a href="https://youtu.be/xxxx"
+                                        class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
+                                        <span class="icon">
+                                            <i class="fab fa-youtube"></i>
+                                        </span>
+                                        <span>Video</span>
+                                    </a>
+                                </span> -->
+                                <!-- <span class="link-block">
+                                    <a href="./static/NavFoM.bib"
+                                        class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
+                                        <span class="icon">
+                                            <i class="fas fa-quote-left"></i> </span>
+                                        <span>BibTex</span>
+                                    </a>
+                                </span> -->
+
+                            </div>
+
+                        </div>
+                        <!-- <div class="text" style="font-size: 20px;">
+                            <b>Conference on Robot Learning <i>(CoRL 2025)</i></b>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop is-centered has-text-justified is-size-5">
+            <div class="hero-body">
+                <img src="./static/images/teaser.png" alt="teaser Image" width="100%">
+                <p>
+                    <strong>UrbanVLA is a route-conditioned Vision-Language-Action model</strong> for urban micromobility. It aligns noisy navigation-tool routes with visual observations to enable scalable, long-horizon navigation. Trained via a two stage pipeline including SFT and RFT, UrbanVLA outperforms baselines by over 55% on MetaUrban and achieves robust real-world navigation across 500m+ routes.
+                </p>
+                    
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column container is-max-desktop ">
+                    <h2 class="title is-3">Summary Video</h2>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/XXXX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+    </section>
+    
+    <!-- Results Carousel--> 
+    <!-- <section class="hero is-light is-small">
+    <div class="hero-body">
+        <div class="container is-max-desktop "> -->
+        <!-- Swiper -->
+        <!-- <div id="results-carousel" class="carousel1  results-carousel">
+
+            <div class="item item1">
+                <video autoplay controls muted loop playsinline>
+                <source src="./static/videos/summary/vln1.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="item item1">
+                <video autoplay controls muted loop playsinline>
+                <source src="./static/videos/summary/tracking1.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="item item1">
+                <video autoplay controls muted loop playsinline>
+                <source src="./static/videos/summary/vln2.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="item item1">
+                <video autoplay controls muted loop playsinline>
+                <source src="./static/videos/summary/tracking2.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="item item1">
+                <video autoplay controls muted loop playsinline>
+                <source src="./static/videos/summary/uav.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="item item1">
+                <video autoplay controls muted loop playsinline>
+                <source src="./static/videos/summary/galbot.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="item item1">
+                <video autoplay controls muted loop playsinline>
+                <source src="./static/videos/summary/dog2humanoid.mp4" type="video/mp4">
+                </video>
+            </div>
+            
+            <div class="item item1">
+                <video autoplay controls muted loop playsinline>
+                <source src="./static/videos/summary/tracking4.mp4" type="video/mp4">
+                </video>
+            </div>
+
+        </div>
+        </div>
+    </div>
+    </section> -->
+
+
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <h2 class="title is-3">UrbanVLA Pipeline</h2>
+                    <div class="content has-text-justified">
+
+                        <center>
+                            <img src="./static/images/pipeline.png" alt="Pipeline Image" width="100%">
+                        </center>
+
+                        <p>
+                            We collect diversified VideoQA data and urban micromobility demonstrations to train the model via a two-stage pipeline. In the SFT stage, UrbanVLA learns essential urban navigation capabilities such as goal-reaching, collision avoidance, and social compliance; in the RFT stage, we refine the model using a sim-real aggregated dataset with IQL, enhancing robustness in real-world scenarios. 
+                        </p>    
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <h2 class="title is-3">MetaUrban Benchmark Results</h2>
+                    <div class="content has-text-justified">
+
+                        <center>
+                            <img src="./static/images/benchmark.png" alt="Benchmark Image" width="90%">
+                        </center>
+
+                        <p>
+                            The benchmark of PointNav and SocialNav tasks on the MetaUrban-12K dataset. We compare our method with seven strong baselines with LiDAR observation. The <b>best</b> and the <u>second best</u> results are denoted by <b>bold</b> and <u>underline</u>, respectively. <br><br>
+                            Our method achieves 94% SR / 0.91 SPL on PointNav and 97% SR / 0.95 SPL on unseen environments, demonstrating strong generalization capability. In SocialNav, it reaches a Social Navigation Score of 0.87, effectively avoiding collisions and maintaining social norms using only RGB inputs. These results demonstrate reliable and efficient navigation in complex urban scenarios.
+                        </p>    
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <h2 class="title is-3">Real-World Long-Horizon Navigation</h2>
+                    <br>
+                        <div class="item case-1">
+                            <video poster="" id="case-1" autoplay controls muted loop playsinline>
+                                <source src="./static/videos/real_world/UrbanVLA_case1(2).mp4" type="video/mp4">
+                            </video>
+                        </div><br><br>
+                        <div class="item case-2">
+                            <video poster="" id="case-2" autoplay controls muted loop playsinline>
+                                <source src="./static/videos/real_world/UrbanVLA_case2(2).mp4" type="video/mp4">
+                            </video>
+                        </div><br><br>
+                        <div class="item case-3">
+                            <video poster="" id="case-3" autoplay controls muted loop playsinline>
+                                <source src="./static/videos/real_world/UrbanVLA_case3(2).mp4" type="video/mp4">
+                            </video>
+                        </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="hero is-small">
+        <div class="hero-body">
+            <h3 class="title is-3 is-centered has-text-centered">
+                <span style="vertical-align: middle;">MetaUrban Simulator Evaluation Visualizations</span>
+            </h3>
+            <div class="container">
+            <div id="sub-results-carousel" class="carousel sub-results-carousel">
+    
+                    <div class="item_b item1">
+                        <video autoplay controls muted loop playsinline>
+                        <source src="./static/videos/simulation/128.mp4" type="video/mp4">
+                        </video>
+                    </div>
+    
+                    <div class="item_b item1">
+                        <video autoplay controls muted loop playsinline>
+                        <source src="./static/videos/simulation/494.mp4" type="video/mp4">
+                        </video>
+                    </div>
+    
+                    <div class="item_b item1">
+                        <video autoplay controls muted loop playsinline>
+                        <source src="./static/videos/simulation/543_unseen.mp4" type="video/mp4">
+                        </video>
+                    </div>
+    
+                    <div class="item_b item1">
+                        <video autoplay controls muted loop playsinline>
+                        <source src="./static/videos/simulation/601.mp4" type="video/mp4">
+                        </video>
+                    </div>
+    
+                    <div class="item_b item1">
+                        <video autoplay controls muted loop playsinline>
+                        <source src="./static/videos/simulation/857.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <h2 class="title is-3">Real-world Deployment System</h2>
+                    <div class="content has-text-justified">
+
+                        <center>
+                            <img src="./static/images/setup.png" alt="Real-World Setup Image" width="35%">
+                        </center>
+                        <p>
+                            Our system consists of a quadruped robot equipped with GPS, Wi-Fi, a camera, and an onboard computing unit, along with a mobile-deployable console for real-time monitoring, sending navigation targets, visualizing maps and model predictions, and annotating teleoperation data used for reinforcement learning.
+                        </p>    
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+
+    <!-- <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-left">
+                <div class="column">
+                    <h2 class="title is-3">Acknowleagemnt</h2>
+                    <div class="content has-text-left">
+                        <p>
+                            We sincerely thank Jianmin Wang and Wenhao Li for their support with the hardware setup. We also thank Chen Gao, Zhiyong Wang, Zhichao Hang, and Donglin Yang for their support with the experiments.
+                        </p>    
+                    </div>
+                </div>
+            </div>
+    </section> -->
+
+
+
+    <!-- <section class="section">
+        <div class="container is-max-desktop"> -->
+            <!-- Abstract. -->
+            <!-- <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Navigation is a fundamental capability in embodied AI, representing the intelligence required to perceive and interact within physical environments through the integration of vision and language instruction. Despite significant progress in large-scale Vision Language Models (VLMs), which exhibit remarkable zero-shot generalization, however embodied navigation remains largely confined to narrow task settings and embodiment-specific architectures.
+In this work, we propose the the attempt to build the navigation foundation model, a cross-embodiment and corss-task navigation model trained on 8 million samples encompassing quadrupeds, drones, wheeled robots, and vehicles, spanning tasks including vision-and-language navigation, object searching, target tracking, and autonomous driving. All task along across embodiements share unified architecture that processes multi-modal inputs (visual observations, instructions, and action sequences). This is achived by using temporal-viewpoint indicator tokens to enable a unfied training manner  of varying camera configurations. Moreover, we devise a token budget-aware sampling strategy to efficiently model navigation history while maintaining stable inference speeds. Extensive evaluations on public benchmarks demonstrate that our model achieves state-of-the-art or highly competitive performance across multiple navigation tasks and embodiment types without requiring task-specific fine-tuning. Additional real-world experiments further confirm the strong generalization capability and practical applicability of our approach.
+                        </p>
+                    </div>
+                </div>
+            </div> -->
+
+            <!--/ Abstract. -->
+
+            <!-- Paper video. -->
+            <!-- <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Summary Video</h2>
+                     <div class="publication-video">
+                        <iframe src="https://www.youtube.com/embed/v51U3Nk-SK4?rel=0&amp;showinfo=0" frameborder="0"
+                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div> -->
+                <!-- </div>
+            </div>
+        </div>
+    </section>  -->
+
+    <!-- <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <h2 class="title is-3">NavFoM Pipeline</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Our method provides a unified framework for handling multiple tasks, including Image QA, Video QA, and Navigation. We organize text tokens and visual tokens using temporal-viewpoint indicator tokens. For question answering, our model employs a conventional language modeling head in an autoregressive manner, while for navigation, it uses a planning head to directly predict trajectories.
+                        <center>
+                            <img src="./static/videos/pipeline.jpg" alt="Pipeline Image" width="80%">
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <h2 class="title is-3">Dataset</h2>
+                    <div class="content has-text-justified">
+                       <p>
+                            To train our parallel-branch TrackVLA, we collect a total of 1.7M newly collected samples, including embodied visual tracking and video-based question-answering data.
+                        </p>
+                        <center>
+                            <img src="./static/videos/dataset.png" alt="Pipeline Image" width="80%">
+                        </center> -->
+                    <!-- </div>
+                </div>
+            </div> -->
+            <!-- <div class="column is-centered has-text-centered">
+                <h2 class="title is-3">Long-horizon Tracking</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        TrackVLA is capable of long-horizon tracking in diverse and dynamic environments. It can effectively track targets over long distances while remaining robust against distractors.
+                    </p>
+                    <center>
+                        <video poster="" id="indoors-main" autoplay controls muted loop playsinline width="80%">
+                            <source src="./static/videos/long_horizon.mp4" type="video/mp4">
+                        </video>
+                    </center>
+                </div>
+            </div> -->
+    <!-- </section>  -->
+
+
+    <!-- <section class="section">
+        <div class="container is-max-desktop is-centered">
+            <center>
+                <h2 class="title is-3">Comparison with Commercial Tracking UAV</h2>
+            </center>
+            <br>
+            <div class="content has-text-justified">
+                <p>
+                    We conducted a series of experiments to compare the tracking performance of TrackVLA with that of a state-of-the-art commercial tracking UAV based on a modular approach. As shown in the video, TrackVLA performs better in challenging scenarios such as target occlusion and fast motion, thanks to its powerful target reasoning capabilities.
+                </p>
+                <center>
+                    <video poster="" id="go1-inside-2-main" autoplay controls muted loop playsinline width="80%">
+                        <source src="./static/videos/comparison.mp4" type="video/mp4">
+                    </video>
+                </center>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop is-centered">
+            <center>
+                <h2 class="title is-3">Environmental Reasoning</h2>
+            </center>
+            <br>
+            <div class="content has-text-justified">
+                <p>
+                    TrackVLA is capable of reasoning about the environment, enabling it to autonomously recognize traversable areas, avoid obstacles, and generalize to fast-motion and low-illumination scenarios without requiring additional training data.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero is-light is-small">
+        <div class="hero-body">
+            <div class="container">
+                <div id="results-carousel" class="carousel results-carousel">
+                    <div class="item item-robust">
+                        <video poster="" id="robust" autoplay controls muted loop playsinline height="100%">
+                            <source src="./static/videos/robust_tracking.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="item item-pursuit">
+                        <video poster="" id="pursuit" autoplay controls muted loop playsinline height="100%">
+                            <source src="./static/videos/pursuit.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="item item-dark">
+                        <video poster="" id="dark" autoplay controls muted loop playsinline height="100%">
+                            <source src="./static/videos/dark.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop is-centered">
+            <center>
+                <h2 class="title is-3">Cross-domain Generalization</h2>
+            </center>
+            <br>
+            <div class="content has-text-justified">
+                <p>
+                    TrackVLA is capable of cross-domain generalization, enabling robust tracking across diverse scene styles, viewpoints, and camera parameters without additional adaptation.
+                </p>
+                <center>
+                    <video poster="" id="go1-inside-2-main" autoplay controls muted loop playsinline width="80%">
+                        <source src="./static/videos/passive.mp4" type="video/mp4">
+                    </video>
+                </center>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@article{li2025urbanvla,
+  title={UrbanVLA: A Vision-Language-Action Model for Urban Micromobility},
+  author={Li, Anqi and Wang, Zhiyong and Zhang, Jiazhao and Li, Minghan and Qi, Yunpeng and Chen, Zhibo and Zhang, Zhizheng and Wang, He},
+  journal={arXiv preprint arXiv:XXX},
+  year={2025}
+}</code></pre>
+        </div>
+    </section>
+
+    <!-- <br>
+    <center class="is-size-10">
+      The website (<a href="https://github.com/wsakobe/TrackVLA-web">source code</a>) design was adapted from <a href="https://nerfies.github.io" class="external-link"><span
+                class="dnerf">Nerfies</span></a>.
+    </center>
+    <br> -->
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const swiper1 = new Swiper('.swiper1', {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 2000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
+        },
+        navigation: false,
+        pagination: false,
+      });
+    });
+  </script>
+
+</body>
+
+</html>
+
+<script>
+  const swiper = new Swiper('.swiper', {
+    slidesPerView: 4,
+    spaceBetween: 10,
+    loop: true,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true
+    },
+    navigation: {
+    //   nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+    //   prevEl: '.swiper-button-prev'
+    },
+    pagination: false,
+  });
+</script>
